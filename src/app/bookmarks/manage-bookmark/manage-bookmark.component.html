@@ -1,0 +1,12 @@
+<div class="manage-bookmark-wrapper container">
+  <div class="sidebar">
+    <p class="sidebar-title">Your Bookmarks</p>
+    <div class="sidebar-items">
+      <a class="sidebar-item" [routerLink]="[bookmark.id]" routerLinkActive="selected" *ngFor="let bookmark of bookmarks">{{bookmark.name}}</a>
+    </div>
+  </div>
+  <div class="content has-blurred-white-bg">
+    <p *ngIf="showDefaultMessage">No bookmark selected</p>
+    <router-outlet (activate)="toggleDefaultMessage(false)" (deactivate)="toggleDefaultMessage(true)"></router-outlet>
+  </div>
+</div>
